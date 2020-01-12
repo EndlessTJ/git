@@ -30,7 +30,7 @@ test_expect_success 'clone with git:// using protocol v1' '
 	test_cmp expect actual &&
 
 	# Client requested to use protocol v1
-	grep "clone> .*\\\0\\\0version=1\\\0$" log &&
+	grep "clone> .*\\\0\\\0version=1.*\\\0$" log &&
 	# Server responded using protocol v1
 	grep "clone< version 1" log
 '
@@ -46,7 +46,7 @@ test_expect_success 'fetch with git:// using protocol v1' '
 	test_cmp expect actual &&
 
 	# Client requested to use protocol v1
-	grep "fetch> .*\\\0\\\0version=1\\\0$" log &&
+	grep "fetch> .*\\\0\\\0version=1.*\\\0$" log &&
 	# Server responded using protocol v1
 	grep "fetch< version 1" log
 '
@@ -60,7 +60,7 @@ test_expect_success 'pull with git:// using protocol v1' '
 	test_cmp expect actual &&
 
 	# Client requested to use protocol v1
-	grep "fetch> .*\\\0\\\0version=1\\\0$" log &&
+	grep "fetch> .*\\\0\\\0version=1.*\\\0$" log &&
 	# Server responded using protocol v1
 	grep "fetch< version 1" log
 '
@@ -78,7 +78,7 @@ test_expect_success 'push with git:// using protocol v1' '
 	test_cmp expect actual &&
 
 	# Client requested to use protocol v1
-	grep "push> .*\\\0\\\0version=1\\\0$" log &&
+	grep "push> .*\\\0\\\0version=1.*\\\0$" log &&
 	# Server responded using protocol v1
 	grep "push< version 1" log
 '
